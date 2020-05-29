@@ -179,7 +179,7 @@ export default class SwipeUpDown extends Component{
 const styles = StyleSheet.create({
   wrapSwipe: {
     padding: 10,
-    backgroundColor: "#ccc",
+    backgroundColor: "white",
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
     position: "absolute",

@@ -23,9 +23,8 @@ export default class SwipeIcon extends Component {
     return (
       <View style={{ alignItems: 'center', height: 10, marginBottom: 5 }}>
         {showIcon && (
-          <Image
-            source={icon}
-            style={{ width: 35, height: icon === images.minus ? 5 : 10 }}
+          <View
+            style={{ height: 3, width: 115, backgroundColor: '#DBDBDB', borderRadius: 2 }}
           />
         )}
       </View>
