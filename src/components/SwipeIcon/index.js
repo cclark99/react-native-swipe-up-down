@@ -19,14 +19,11 @@ export default class SwipeIcon extends Component {
   }
 
   render() {
-    const { icon, showIcon } = this.state;
     return (
       <View style={{ alignItems: 'center', height: 10, marginBottom: 5 }}>
-        {showIcon && (
-          <View
-            style={{ height: 3, width: 115, backgroundColor: '#DBDBDB', borderRadius: 2 }}
-          />
-        )}
+        <View
+          style={{ height: 3, width: 115, backgroundColor: '#DBDBDB', borderRadius: 2 }}
+        />
       </View>
     );
   }

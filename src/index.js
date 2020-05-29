@@ -13,8 +13,8 @@ import {
 import SwipeIcon from "./components/SwipeIcon";
 import images from "./assets/images";
 
-const MARGIN_TOP = Platform.OS === "ios" ? 20 : 0;
-const DEVICE_HEIGHT = Dimensions.get("window").height - MARGIN_TOP;
+const MARGIN_TOP = Platform.OS === "ios" ? 80 : 0;
+const DEVICE_HEIGHT = Dimensions.get("window").height;
 
 export default class SwipeUpDown extends Component{
   static defautProps = {
@@ -78,10 +78,8 @@ export default class SwipeUpDown extends Component{
   _onPanResponderMove(event, gestureState) {
     if (gestureState.dy > 0 && !this.checkCollapsed) {
       // SWIPE DOWN
-
       this.customStyle.style.top = this.top + gestureState.dy;
       this.customStyle.style.height = DEVICE_HEIGHT - gestureState.dy;
-      this.swipeIconRef && this.swipeIconRef.setState({ icon: images.minus });
       !this.state.collapsed && this.setState({ collapsed: true });
       this.updateNativeProps();
     } else if (this.checkCollapsed && gestureState.dy < -60) {
@@ -89,15 +87,6 @@ export default class SwipeUpDown extends Component{
       this.top = 0;
       this.customStyle.style.top = DEVICE_HEIGHT + gestureState.dy;
       this.customStyle.style.height = -gestureState.dy + this.SWIPE_HEIGHT;
-      this.swipeIconRef &&
-        this.swipeIconRef.setState({ icon: images.minus, showIcon: true });
-      if (this.customStyle.style.top <= DEVICE_HEIGHT / 2) {
-        this.swipeIconRef &&
-          this.swipeIconRef.setState({
-            icon: images.arrow_down,
-            showIcon: true
-          });
-      }
       this.updateNativeProps();
       this.state.collapsed && this.setState({ collapsed: false });
     }
